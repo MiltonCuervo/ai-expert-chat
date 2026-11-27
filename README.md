@@ -1,14 +1,16 @@
 # AI Expert Chat
 
-Aplicación universitaria Full Stack para conversar con un asistente especializado en programación. Incluye modo simulado para el Taller 2 y OpenAI para el Proyecto IA.
+Aplicación universitaria Full Stack para conversar con un asistente especializado en programación. Incluye modo simulado para el Taller 2 e integración con Gemini para el Proyecto IA; también admite OpenAI.
 
-**Integrantes:** completar con los nombres del equipo.  
-**Repositorio:** completar al publicar en GitHub.  
-**Aplicación:** completar después del despliegue en Vercel.
+**Integrantes:** completar con los nombres del equipo.
+
+**Repositorio:** [MiltonCuervo/ai-expert-chat](https://github.com/MiltonCuervo/ai-expert-chat) (privado; requiere acceso).
+
+**Aplicación:** [ai-expert-chat.vercel.app](https://ai-expert-chat.vercel.app/).
 
 ## Arquitectura y decisiones
 
-`Navegador → componentes React → Route Handler / Server Actions → servicios → Supabase PostgreSQL / proveedor de IA`. App Router renderiza páginas y consulta datos en el servidor; el formulario y el chat son componentes cliente por su interactividad. Las Server Actions realizan mutaciones de conversaciones y administración. El Route Handler valida la sesión y la propiedad antes de construir el contexto en el servidor. `AIProvider` separa el proveedor de la interfaz; implementar otro adaptador y registrarlo en `getAIProvider` permite usar Gemini, Groq u Ollama. Ollama debe estar disponible en una dirección alcanzable desde el servidor de despliegue.
+`Navegador → componentes React → Route Handler / Server Actions → servicios → Supabase PostgreSQL / proveedor de IA`. App Router renderiza páginas y consulta datos en el servidor; el formulario y el chat son componentes cliente por su interactividad. Las Server Actions realizan mutaciones de conversaciones y administración. El Route Handler valida la sesión y la propiedad antes de construir el contexto en el servidor. `AIProvider` separa el proveedor de la interfaz: existen adaptadores para Gemini, OpenAI y respuestas simuladas; implementar otro adaptador y registrarlo en `getAIProvider` permite usar Groq u Ollama. Ollama debe estar disponible en una dirección alcanzable desde el servidor de despliegue.
 
 Supabase Auth administra `auth.users`, contraseñas y sesiones; `profiles` conserva el rol. El middleware de Next.js 15 renueva cookies y protege las páginas; cada acción o endpoint comprueba nuevamente al usuario y los permisos. RLS limita conversaciones y mensajes al propietario; la función de roles comprueba ADMIN en PostgreSQL. `service_role` se usa exclusivamente en servidor para insertar respuestas y contar datos generales, tras verificar identidad o rol. Nunca debe enviarse al navegador. El modelo recibe el prompt activo y hasta 20 mensajes previos; no se implementa streaming de tokens: los mensajes aparecen al completar la respuesta.
 
