@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base { body { @apply bg-slate-950 text-slate-100 antialiased; } a { @apply text-cyan-300 hover:text-cyan-200; } input, textarea, select { @apply w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-slate-100 outline-none focus:border-cyan-400; } button { @apply rounded-lg bg-cyan-400 px-4 py-2 font-semibold text-slate-950 hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50; } }
+@layer components { .card { @apply rounded-2xl border border-slate-800 bg-slate-900 p-6; } .muted { @apply text-slate-400; } .secondary { @apply border border-slate-700 bg-slate-800 text-slate-100 hover:bg-slate-700; } }
+.prose-chat { overflow-wrap:anywhere; line-height:1.7; } .prose-chat pre { overflow:auto; background:#020617; padding:1rem; border-radius:.5rem; margin:.8rem 0; } .prose-chat code { color:#a5f3fc; } .prose-chat p,.prose-chat ul,.prose-chat ol { margin:.5rem 0; } .prose-chat ul { list-style:disc; padding-left:1.5rem; } .prose-chat ol { list-style:decimal; padding-left:1.5rem; }
