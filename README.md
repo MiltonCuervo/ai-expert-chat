@@ -4,7 +4,7 @@ Aplicación universitaria Full Stack para conversar con un asistente especializa
 
 **Integrantes:** completar con los nombres del equipo.
 
-**Repositorio:** [MiltonCuervo/ai-expert-chat](https://github.com/MiltonCuervo/ai-expert-chat) (privado; requiere acceso).
+**Repositorio:** [MiltonCuervo/ai-expert-chat](https://github.com/MiltonCuervo/ai-expert-chat).
 
 **Aplicación:** [ai-expert-chat.vercel.app](https://ai-expert-chat.vercel.app/).
 
